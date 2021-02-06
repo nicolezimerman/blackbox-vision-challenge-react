@@ -2,11 +2,8 @@ import './index.css';
 
 
 function Button(props) {
-    function clickMe(){
-      console.log('click me');
-    }
     return (
-      <button className="button" onClick={clickMe}>
+      <button className="button" onClick={() => props.checkAnswer(props.children)} value={props.children}>
           {props.children}
       </button>
     );

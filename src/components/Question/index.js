@@ -2,11 +2,14 @@ import './index.css';
 
 
 function Question(props) {
+  const {category,difficulty,question} = props.question;
     return (
+     
       <section className="question">
-        <header>1/10</header>
-        hola esto es una pregunta
-        <footer>categoria</footer>
+         {console.log(props)}
+        <header>{props.number + 1}/{props.total}</header>
+        {question}
+        <footer>{category} - {difficulty}</footer>
       </section>
     );
   }
