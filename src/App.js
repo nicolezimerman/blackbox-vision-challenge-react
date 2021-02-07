@@ -4,13 +4,16 @@ import Button from './components/Button';
 import Question from './components/Question';
 import Loader from './components/Loader';
 
+import Correct from './assets/checked.png';
+import Wrong from './assets/cancel.png';
+
+
 function App() {
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [points, setPoints] = useState(0);
   const [status, setStatus] = useState("pending");
   const question = questions[currentQuestion];
-
 
   useEffect(() => {
       //Codigo que se ejecuta solo al montar
@@ -40,12 +43,11 @@ function App() {
     }
   }
 
-  async function startAgain(){
+  async function restart(){
     setStatus("pending");
     setCurrentQuestion(0);
     setPoints(0);
     await getQuestions();
-
   }
   
   if(status === "pending"){
@@ -56,10 +58,11 @@ function App() {
     return(
       <div className="container">
         <div className="score">Your total score is {points}</div>
-        <button className="start-again" onClick={startAgain}>Start again</button>
+        <button className="start-again" onClick={restart}>Start again</button>
       </div>
     )
   }
+
   return (  
     <main className="App">
       <Question question={question} number={currentQuestion} total={questions.length}></Question>

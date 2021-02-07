@@ -6,7 +6,6 @@ function Question(props) {
     return (
      
       <section className="question">
-         {console.log(props)}
         <header>{props.number + 1}/{props.total}</header>
         {question}
         <footer>{category} - {difficulty}</footer>
