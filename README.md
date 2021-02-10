@@ -1,4 +1,4 @@
-# ✨ QUIZ APP - Blackbox vision challenge ![Status](https://img.shields.io/badge/Status-FINISHED-brightgreen)
+# ✨ QUIZ APP - Blackbox vision challenge ![Status](https://img.shields.io/badge/Status-WIP-yellow)
 
 This is a quiz app made from Goncy's and Blackbox challenge
 
@@ -38,3 +38,4 @@ Please make sure to update tests as appropriate.
 ## ⏳ To do / WIP
 
 - Show correct/incorrect answer
+- Sort questions

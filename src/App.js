@@ -15,6 +15,7 @@ function App() {
   const [status, setStatus] = useState("pending");
   const question = questions[currentQuestion];
 
+
   useEffect(() => {
       //Codigo que se ejecuta solo al montar
       getQuestions();
@@ -39,8 +40,9 @@ function App() {
     if((currentQuestion + 1) == questions.length){
       setStatus('finished');
     }else{
-      setCurrentQuestion((currentQuestion) => currentQuestion + 1);  
+      setTimeout(() => setCurrentQuestion((currentQuestion) => currentQuestion + 1),600);  
     }
+
   }
 
   async function restart(){
@@ -49,6 +51,7 @@ function App() {
     setPoints(0);
     await getQuestions();
   }
+
   
   if(status === "pending"){
     return(
@@ -64,14 +67,18 @@ function App() {
   }
 
   return (  
-    <main className="App">
-      <Question question={question} number={currentQuestion} total={questions.length}></Question>
-      <nav className="answers"> 
-      {[...question.incorrect_answers, question.correct_answer].map((answer) =>{
-        return <Button key={answer} checkAnswer={checkAnswer}>{answer}</Button>
-      })}  
-      </nav>
-    </main>
+    <>
+      <main className="App">
+        <Question question={question} number={currentQuestion} total={questions.length}></Question>
+        <nav className="answers"> 
+        {[...question.incorrect_answers, question.correct_answer].map((answer) =>{
+          return <Button key={answer} checkAnswer={checkAnswer}>{answer}</Button>
+        })}  
+        </nav>
+        
+      </main>
+      <div class="footer">Developed with ❤️ by <a href="https://nicolezimerman.github.io/"> Nicole Zimerman</a></div>
+    </>
   );
 }
 
